@@ -15,3 +15,17 @@ def test_health_endpoint():
 
     assert response.status_code == 200
     assert response.json["status"] == "healthy"
+def test_version_endpoint():
+    client = app.test_client()
+    response = client.get("/version")
+
+    assert response.status_code == 200
+    assert response.json["version"] == "1.0.0"
+    assert response.json["project"] == "Secure Collaborative DevOps"
+def test_version_endpoint():
+    client = app.test_client()
+    response = client.get("/version")
+
+    assert response.status_code == 200
+    assert response.json["version"] == "1.0.0"
+    assert response.json["project"] == "Secure Collaborative DevOps"
